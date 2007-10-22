@@ -1,11 +1,13 @@
 %define major 0
 %define libname %mklibname ggiwmh %{major}
+%define develname %mklibname -d ggiwmh
+%define staticname %mklibname -s -d ggiwmh
 
 Summary:	Extension to libggi whereby wmh stands for 'Window Manager Hints'
 Name:		libggiwmh
 Version:	0.3.2
 Release:	%mkrel 4
-License:	Public Domain
+License:        BSD
 Group:		System/Libraries
 Url:		http://www.ggi-project.org
 Source0:	http://www.ggi-project.org/ftp/ggi/v2.2/%{name}-%{version}.src.tar.bz2
@@ -30,21 +32,23 @@ Requires:	%{name} = %{version}-%{release}
 %description -n %{libname}
 Main library for libggiwmh.
 
-%package -n %{libname}-devel
+%package -n %develname
 Summary:	Header files for libggiwmh library
 Group:		Development/C
 Requires:	%{libname} = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
+Obsoletes: %mklibname -d ggiwmh 0
 
-%description -n %{libname}-devel
+%description -n %develname
 Header files for libggiwmh library.
 
-%package -n %{libname}-static-devel
+%package -n %staticname
 Summary:	Static files for libggiwmh library
 Group:		Development/C
-Requires:	%{libname}-devel = %{version}-%{release}
+Requires:	%develname = %{version}-%{release}
+Obsoletes: %mklibname -s -d ggiwmh 0
 
-%description -n %{libname}-static-devel
+%description -n %staticname
 Static files for libggiwmh library.
 
 %prep
@@ -90,7 +94,7 @@ chrpath -d %{buildroot}%{_libdir}/ggi/wmh/display/pseudo_stubs_wmh.so
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/*.so.%{major}*
 
-%files -n %{libname}-devel
+%files -n %develname
 %defattr(644,root,root,755)
 %doc doc/*.txt
 %{_includedir}/ggi/*.h
@@ -99,9 +103,8 @@ chrpath -d %{buildroot}%{_libdir}/ggi/wmh/display/pseudo_stubs_wmh.so
 %{_libdir}/*.so
 %{_mandir}/man7/*
 
-%files -n %{libname}-static-devel
+%files -n %staticname
 %defattr(644,root,root,755)
 %{_libdir}/*.a
-%{_libdir}/ggi/wmh/display/*.a
 
 
