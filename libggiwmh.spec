@@ -74,9 +74,13 @@ chrpath -d %{buildroot}%{_libdir}/ggi/wmh/display/X_wmh.so
 chrpath -d %{buildroot}%{_libdir}/ggi/wmh/display/pseudo_stubs_wmh.so
 %endif
 
+%if %mdkversion < 200900
 %post -n %{libname} -p /sbin/ldconfig
+%endif
 
+%if %mdkversion < 200900
 %postun -n %{libname} -p /sbin/ldconfig
+%endif
 
 %clean
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
