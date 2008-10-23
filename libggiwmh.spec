@@ -6,7 +6,7 @@
 Summary:	Extension to libggi whereby wmh stands for 'Window Manager Hints'
 Name:		libggiwmh
 Version:	0.3.2
-Release:	%mkrel 6
+Release:	%mkrel 5
 License:        BSD
 Group:		System/Libraries
 Url:		http://www.ggi-project.org
@@ -53,7 +53,6 @@ Static files for libggiwmh library.
 
 %prep
 %setup -q
-./autogen.sh
 
 %build
 export echo=echo
