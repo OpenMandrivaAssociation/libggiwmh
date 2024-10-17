@@ -9,7 +9,7 @@ Version:	0.3.2
 Release:	%mkrel 8
 License:        BSD
 Group:		System/Libraries
-Url:		http://www.ggi-project.org
+Url:		https://www.ggi-project.org
 Source0:	http://www.ggi-project.org/ftp/ggi/v2.2/%{name}-%{version}.src.tar.bz2
 BuildRequires:	libggi-devel	>= 2.2.2
 %ifarch x86_64
