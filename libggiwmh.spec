@@ -11,6 +11,11 @@ License:        BSD
 Group:		System/Libraries
 Url:		https://www.ggi-project.org
 Source0:	http://www.ggi-project.org/ftp/ggi/v2.2/%{name}-%{version}.src.tar.bz2
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	libggi-devel	>= 2.2.2
 %ifarch x86_64
 BuildRequires:	chrpath
